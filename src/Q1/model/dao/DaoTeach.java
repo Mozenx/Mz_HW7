@@ -10,13 +10,13 @@ public interface DaoTeach {
 
     void insert(Teacher teacher) throws SQLException;
 
-    Student findById(int id) throws SQLException;
+    Teacher findById(int id) throws SQLException;
 
     void update (Teacher teacher) throws SQLException;
 
     void deleteById(String  id) throws SQLException;
 
-    List<Student> findAll() throws SQLException;
+    List<Teacher> findAll() throws SQLException;
 
     List<Object> findTeachers (int id) throws SQLException;
 
