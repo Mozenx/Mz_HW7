@@ -1,12 +1,13 @@
 package Q1.model;
 
 public class Teacher {
-    private String fName, lName, tId;
+    private String fName, lName, tId, sId;
 
-    public Teacher(String fName, String lName, String tId) {
+    public Teacher(String fName, String lName, String tId, String sId) {
         this.fName = fName;
         this.lName = lName;
         this.tId = tId;
+        this.sId = sId;
     }
 
     public String getfName() {
@@ -32,4 +33,12 @@ public class Teacher {
     public void settId(String tId) {
         this.tId = tId;
     }
-}
+
+    public String getsId() {
+        return sId;
+    }
+
+    public void setsId(String sId) {
+        this.sId = sId;
+    }
+}// end of class
