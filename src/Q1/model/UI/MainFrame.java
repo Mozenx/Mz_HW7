@@ -29,15 +29,16 @@ public class MainFrame {
         stB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                TableFrame stTable = new StudentTable();
             }
         });
 
         tchB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                TableFrame tchTable = new TeacherTable();
             }
         });
-    }
-}
+
+    }// end of constructor
+}//end of class
