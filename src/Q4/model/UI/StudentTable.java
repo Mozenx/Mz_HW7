@@ -156,7 +156,7 @@ public class StudentTable extends javax.swing.JFrame {
             String fName = jTable1.getModel().getValueAt(row, 0).toString();
             String lName = jTable1.getModel().getValueAt(row, 1).toString();
             String stId = jTable1.getModel().getValueAt(row, 2).toString();
-            String  tchId ;q
+            String  tchId ;
             AddingFrame add = new AddingFrame();
             add.jButton2.setEnabled(false);
             add.jTextField1.setText(fName);
