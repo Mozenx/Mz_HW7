@@ -50,5 +50,11 @@ public class TreeSetExample {
 
         System.out.println("\nIntersection of two sets used ArrayList.\n"+treeSet);
 
-    }//end of findCommon method
-}
+    }//end of findIntersection method
+
+    //find method for finding Intersection of two sets with retainAll method.
+    public static void find(TreeSet<Character> tree1, TreeSet<Character> tree2){
+        tree1.retainAll(tree2);
+        System.out.println("\nIntersection on two sets used retainAll method\n"+tree1);
+    }//end of find method
+}//end of class
