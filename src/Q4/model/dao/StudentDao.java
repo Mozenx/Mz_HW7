@@ -29,21 +29,21 @@ public class StudentDao implements DaoStu {
     public void insert(Student student) throws SQLException {
 
         initConn();
-        String query = "insert into students values('"+student.getfName()+"','"+student.getLname()+"','"+student.getsId()+"','"+student.gettId()+"')";
+        String query = "insert into students values('"+student.getfName()+"','"+student.getLname()+"','"+student.getsId()+"')";
         stmt.executeUpdate(query);
         closeConn();
 
     }
 
     @Override
-    public Student findById(int id) throws SQLException {
+    public Student findById(String  id) throws SQLException {
 
         initConn();
         String query = "select * from students where sId="+id;
         ResultSet rs = stmt.executeQuery(query);
         Student stu = null;
         while (rs.next())
-            new Student(stu.getfName(),stu.getLname(),stu.getsId(),stu.gettId());
+            new Student(stu.getfName(),stu.getLname(),stu.getsId());
         return stu;
     }
 
@@ -52,7 +52,7 @@ public class StudentDao implements DaoStu {
 
         initConn();
         String query = "update students set fName='"+student.getfName()+"',lName='"+student.getLname()+
-                "',stId='"+student.getsId()+"',tchId='"+ student.gettId()+"'where stId="+student.getsId();
+                "',stId='"+student.getsId()+"' where stId="+student.getsId();
         stmt.executeUpdate(query);
         closeConn();
 
@@ -62,7 +62,7 @@ public class StudentDao implements DaoStu {
     public void deleteById(String  id) throws SQLException {
 
         initConn();
-        String query = "delete from students where stId = "+id;
+        String query = "delete from students where students.stId = "+id;
         stmt.executeUpdate(query);
         closeConn();
 
@@ -77,7 +77,7 @@ public class StudentDao implements DaoStu {
         List<Student> students = new ArrayList<>();
         while (rs.next())
             students.add(new Student(rs.getString("fName"),rs.getString("lName"),
-                    rs.getString("stId"),rs.getString("tchId")));
+                    rs.getString("stId")));
         closeConn();
         return students;
     }
@@ -91,8 +91,18 @@ public class StudentDao implements DaoStu {
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next())
             teachers.add(new Student(rs.getString("fName"),rs.getString("lName"),
-                    rs.getString("sId"),rs.getString("tId")));
+                    rs.getString("sId")));
         closeConn();
         return teachers;
     }
+
+    @Override
+    public void insertToStuTch(String stId,String tchId) throws SQLException{
+        initConn();
+        String query = "insert into stu_tch values('"+stId+"','"+tchId+"')";
+        stmt.executeUpdate(query);
+        closeConn();
+    }
+
+
 }//end of class

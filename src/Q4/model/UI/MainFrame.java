@@ -3,6 +3,7 @@ package Q1.model.UI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class MainFrame {
 
@@ -29,14 +30,25 @@ public class MainFrame {
         stB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TableFrame stTable = new StudentTable();
+                try {
+                    StudentTable stTable;
+                    new StudentTable().setVisible(true);
+                    new AddingFrame().isStudent =true;
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
         tchB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TableFrame tchTable = new TeacherTable();
+                try {
+                    new TeacherTable().setVisible(true);
+                    new AddingFrame().isStudent =false;
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 

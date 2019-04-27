@@ -31,20 +31,20 @@ public class TeacherDao implements DaoTeach{
     public void insert(Teacher teacher) throws SQLException {
 
         initConn();
-        String query = "insert into teachers values('"+teacher.getfName()+"','"+teacher.getlName()+"','"+teacher.getsId()+"','"+teacher.gettId()+"')";
+        String query = "insert into teachers values('"+teacher.getfName()+"','"+teacher.getlName()+"','"+teacher.gettId()+"')";
         stmt.executeUpdate(query);
         closeConn();
     }
 
     @Override
-    public Teacher findById(int id) throws SQLException {
+    public Teacher findById(String  id) throws SQLException {
         initConn();
-        String query = "select * from teachers where sId="+id;
+        String query = "select * from teachers where tchId="+id;
         ResultSet rs = stmt.executeQuery(query);
-        Teacher stu = null;
+        Teacher tc = null;
         while (rs.next())
-            new Teacher(stu.getfName(),stu.getlName(),stu.getsId(),stu.gettId());
-        return stu;
+            new Teacher(rs.getString("lName"),rs.getString("lName"),rs.getString("tchId"));
+        return tc;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class TeacherDao implements DaoTeach{
 
         initConn();
         String query = "update teachers set fName='"+teacher.getfName()+"',lName='"+teacher.getlName()+
-                "',stId='"+teacher.getsId()+"',tchId='"+ teacher.gettId()+"'where tchId="+teacher.gettId();
+                "',tchId='"+teacher.gettId()+"'where tchId="+teacher.gettId();
         stmt.executeUpdate(query);
         closeConn();
     }
@@ -76,13 +76,29 @@ public class TeacherDao implements DaoTeach{
         List<Teacher> teachers = new ArrayList<>();
         while (rs.next())
             teachers.add(new Teacher(rs.getString("fName"),rs.getString("lName"),
-                    rs.getString("tchId"),rs.getString("stId")));
+                    rs.getString("tchId")));
         closeConn();
         return teachers;
     }
 
     @Override
-    public List<Object> findTeachers(int id) throws SQLException {
-        return null;
+    public List<Student> findTeachers(String  tchId) throws SQLException {
+
+        initConn();
+        String query = "select students.fName , students.lName from students join stu_tch on students.stId = stu_tch.stId where stu_tch.tchId="+tchId;
+        ResultSet rs = stmt.executeQuery(query);
+        List<Student> student = new ArrayList<>();
+        while (rs.next()) {
+            student.add(new Student(rs.getString("fName"), rs.getString("lName")));
+        }
+        return student;
+    }
+
+    @Override
+    public void insertToStuTch(String stId,String tchId) throws SQLException{
+        initConn();
+        String query = "insert into stu_tch ('"+stId+"','"+tchId+"')";
+        stmt.executeUpdate(query);
+        closeConn();
     }
 }//end of class

@@ -1,15 +1,23 @@
 package Q1.model;
 
+import java.util.List;
+
 public class Student {
     private String fName;
-    private String lname;
+    private String lName;
     private String sId;
+    private List<Teacher> teachersOf;
 
-    public Student(String fName, String lname, String sId, String tId) {
+    public Student(String fName, String lName, String sId) {
         this.fName = fName;
-        this.lname = lname;
+        this.lName = lName;
         this.sId = sId;
-        this.tId = tId;
+
+    }
+
+    public Student(String fName, String lName){
+        this.fName = fName;
+        this.lName = lName;
     }
 
     public String gettId() {
@@ -31,11 +39,11 @@ public class Student {
     }
 
     public String getLname() {
-        return lname;
+        return lName;
     }
 
     public void setLname(String lname) {
-        this.lname = lname;
+        this.lName = lname;
     }
 
     public String getsId() {
@@ -45,4 +53,6 @@ public class Student {
     public void setsId(String sId) {
         this.sId = sId;
     }
+
+
 }// end of class

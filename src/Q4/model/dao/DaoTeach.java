@@ -4,13 +4,14 @@ import Q1.model.Student;
 import Q1.model.Teacher;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DaoTeach {
 
     void insert(Teacher teacher) throws SQLException;
 
-    Teacher findById(int id) throws SQLException;
+    Teacher findById(String  id) throws SQLException;
 
     void update (Teacher teacher) throws SQLException;
 
@@ -18,6 +19,8 @@ public interface DaoTeach {
 
     List<Teacher> findAll() throws SQLException;
 
-    List<Object> findTeachers (int id) throws SQLException;
+    List<Student> findTeachers (String  tchId) throws SQLException;
+
+    void insertToStuTch(String stId,String tchId) throws SQLException;
 
 }
