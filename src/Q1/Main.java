@@ -12,6 +12,10 @@ public class Main {
         System.out.println("TreeSet 1:\n"+TreeSetExample.addChar(test1));
         System.out.println("TreeSet 2:\n"+TreeSetExample.addChar(test2));
 
+        TreeSetExample.findUnion(test1,test2);
+        TreeSetExample.findIntersection(test1,test2);
+        TreeSetExample.find(test1, test2);
+
     }
 
 }//end of class
