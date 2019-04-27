@@ -1,4 +1,4 @@
-package Q1.model.UI;
+package Q4.model.UI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -33,19 +33,19 @@ public class MainFrame {
                 try {
                     StudentTable stTable;
                     new StudentTable().setVisible(true);
-                    new AddingFrame().isStudent =true;
+                    AddingFrame.isStudent = true;
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
-        });
+        });//student button
 
         tchB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     new TeacherTable().setVisible(true);
-                    new AddingFrame().isStudent =false;
+                    AddingFrame.isStudent = false;
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
