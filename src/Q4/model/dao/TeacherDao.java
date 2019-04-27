@@ -1,8 +1,7 @@
-package Q1.model.dao;
+package Q4.model.dao;
 
-import Q1.model.Student;
-import Q1.model.Teacher;
-import Q1.model.UI.TeacherTable;
+import Q4.model.Student;
+import Q4.model.Teacher;
 
 import java.sql.*;
 import java.util.ArrayList;

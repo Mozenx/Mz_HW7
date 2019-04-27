@@ -1,10 +1,9 @@
-package Q1.model.dao;
+package Q4.model.dao;
 
-import Q1.model.Student;
-import Q1.model.Teacher;
+import Q4.model.Student;
+import Q4.model.Teacher;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public interface DaoTeach {
